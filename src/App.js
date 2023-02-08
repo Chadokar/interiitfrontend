@@ -22,7 +22,7 @@ function App() {
     data.append("file", file);
     console.log(data);
     try {
-      await axios.post("http://54.241.135.181/upload", data).then((res) => {
+      await axios.post("http://localhost:8000/upload", data).then((res) => {
         console.log(res);
         setDatas(res.data);
       });
@@ -81,44 +81,36 @@ function App() {
           {/* {file !==
             "https://assets.puzzlefactory.pl/puzzle/386/275/original.jpg" && (
             <div className="see-result">
-              <button>See result!</button>
+              <button>See result!</button>Mean average precission
             </div>
           )} */}
         </form>
         <div className="flex-col flex items-center gap-10 w-4/5">
-          <div className="flex flex-row gap-14 justify-between">
-            {datas && (
-              <img
-                src={`http://54.241.135.181${datas.output1}`}
-                style={{ maxWidth: 480, maxHeight: 500 }}
-                alt=" "
-              />
-            )}
-            {datas && (
-              <img
-                src={`http://54.241.135.181${datas.output2}`}
-                style={{ maxWidth: 480, maxHeight: 500 }}
-                alt=" "
-              />
-            )}
-          </div>
           {datas && (
-            <div className="flex-row flex gap-10 items-center">
+            <div className="flex-col flex gap-10 items-center">
               <div className="flex flex-col gap-3 items-center">
-                <p className="numb">{datas.val1}</p>
-                <h2 className="numt">First Number</h2>
+                <p className="numb">{datas.MAP}</p>
+                <h2 className="numt">Mean average precission</h2>
               </div>
               <div className="flex flex-col gap-3 items-center">
-                <p className="numb">{datas.val2}</p>
-                <h2 className="numt">Second Number</h2>
+                <p className="numb">{datas.DBP}</p>
+                <h2 className="numt">Diastolic blood pressure</h2>
               </div>
               <div className="flex flex-col gap-3 items-center">
-                <p className="numb">{datas.val3}</p>
-                <h2 className="numt">Third Number</h2>
+                <p className="numb">{datas.SPO2}</p>
+                <h2 className="numt">SPO2</h2>
               </div>
               <div className="flex flex-col gap-3 items-center">
-                <p className="numb">{datas.val4}</p>
-                <h2 className="numt">Fourth Number</h2>
+                <p className="numb">{datas.SBP}</p>
+                <h2 className="numt">Systolic blood pressure</h2>
+              </div>
+              <div className="flex flex-col gap-3 items-center">
+                <p className="numb">{datas.RR}</p>
+                <h2 className="numt">RR</h2>
+              </div>
+              <div className="flex flex-col gap-3 items-center">
+                <p className="numb">{datas.HR}</p>
+                <h2 className="numt">Heart Rate</h2>
               </div>
             </div>
           )}
