@@ -108,10 +108,12 @@ function App() {
                 <p className="numb">{datas.RR}</p>
                 <h2 className="numt">RR</h2>
               </div>
-              <div className="flex flex-col gap-3 items-center">
-                <p className="numb">{datas.HR}</p>
-                <h2 className="numt">Heart Rate</h2>
-              </div>
+              {datas.HR && (
+                <div className="flex flex-col gap-3 items-center">
+                  <p className="numb">{datas.HR}</p>
+                  <h2 className="numt">Heart Rate</h2>
+                </div>
+              )}
             </div>
           )}
         </div>
